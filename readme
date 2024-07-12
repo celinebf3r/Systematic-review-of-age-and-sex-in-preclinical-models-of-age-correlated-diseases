@@ -1,0 +1,4 @@
+Code and data described for the pilot study used to develop the study protocol “A systematic review on the representation of patients’ age and sex in mouse models of age-related diseases “ 
+Datasets:
+1.	The Cochrane datasets contain randomly picked Cochrane reviews for three different diseases with the extracted data for age and sex of participants included in clinical trials
+2.	The preclinical datasets contain randomly picked studies from PubMed for five different age-correlated diseases with the extracted data for age and sex of mice used in the studies
