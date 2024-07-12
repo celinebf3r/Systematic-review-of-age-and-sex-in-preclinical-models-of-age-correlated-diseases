@@ -1,0 +1,28 @@
+library(nlme)
+rm(list=ls(all=T))
+set.seed(23072)
+library(MKpower)
+library(multimode)
+source("../Rscripts/souce_samplesize.R")
+X<-read.csv("../data//preclinical/Pilotstudie_ finale preclinical Tabelle.csv",sep=";",dec=",")
+D<-X[3:22,-1]
+DISEASE<-c("COPD","IHD","Alzheimer’s disease","stroke","diabetes mellitus type 2")
+N<-vector("integer",5)
+
+N[1]<-samplesize(D=D,k=1,DELTA=3.0)
+N[2]<-samplesize(D=D,k=2,DELTA=2.0)
+N[3]<-samplesize(D=D,k=3,DELTA=8.0)
+N[4]<-samplesize(D=D,k=4,DELTA=2.0)
+N[5]<-samplesize(D=D,k=5,DELTA=3.0)
+
+POWER1<-samplepower(D=D,k=1,DELTA=3,n=N[1])
+POWER2<-samplepower(D=D,k=2,DELTA=2,n=N[2])
+POWER3<-samplepower(D=D,k=3,DELTA=8,n=N[3])
+POWER4<-samplepower(D=D,k=4,DELTA=2,n=N[4])
+POWER5<-samplepower(D=D,k=5,DELTA=3,n=N[5])
+
+print(paste("For",DISEASE[1],"we obtain",  N[1]," with a power of",  POWER1," The age difference was 3 weeks."))
+print(paste("For",DISEASE[1],"we obtain",  N[2]," with a power of",  POWER2," The age difference was 3 weeks."))
+print(paste("For",DISEASE[1],"we obtain",  N[3]," with a power of",  POWER3," The age difference was 3 weeks."))
+print(paste("For",DISEASE[1],"we obtain",  N[4]," with a power of",  POWER4," The age difference was 3 weeks."))
+print(paste("For",DISEASE[1],"we obtain",  N[5]," with a power of",  POWER5," The age difference was 3 weeks."))
